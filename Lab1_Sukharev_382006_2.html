@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body id="body">
+    <script type="application/javascript">
+        
+    function buildTable(array){
+        tbl = document.createElement("table");
+        thd = document.createElement("thead");
+        tbd = document.createElement("tbody");
+        tbl.appendChild(thd);
+        tbl.appendChild(tbd);
+        if(array.length>0){
+            row = document.createElement("tr");
+            for (x in array[0]){
+                th = document.createElement("th");
+                th.innerHTML = x;
+                row.appendChild(th);
+            }
+            thd.appendChild(row);
+        }
+        for(i in array){
+            obj = array[i];
+            row = document.createElement("tr");
+            for (x in obj){
+                td = document.createElement("td");
+                td.innerHTML = obj[x];
+                row.appendChild(td);
+            }
+            tbd.appendChild(row);
+        }
+        document.getElementById("body").appendChild(tbl);
+    }
+    
+    buildTable([{"day":"03","month":"09","topic":"Intro\\HTTP"},
+                {"day":"10","month":"09","topic":"HTML"},
+                {"day":"17","month":"09","topic":"HTML"},
+                {"day":"24","month":"09","topic":"HTML\\JavaScript"},
+                {"day":"01","month":"10","topic":"JavaScript"},
+                {"day":"08","month":"10","topic":"JavaScript"},
+                {"day":"15","month":"10","topic":"JavaScript"},
+                {"day":"22","month":"10","topic":"ServerSide"},
+                {"day":"29","month":"10","topic":"NodeJS"},
+                {"day":"05","month":"11","topic":"NodeJS"},
+                {"day":"12","month":"11","topic":"NodeJS"}
+                ]);
+    
+    buildTable([{"id":"14","title":"323","text":"23","link":"12","date":"2012-07-02"},
+                {"id":"13","title":"abcd","text":"efg","link":"nope","date":"2012-07-02"},
+                {"id":"12","title":"qwerty","text":"1111111111","link":"32423r","date":"2012-06-29"}]);
+    // alert('1');
+    </script>
+</body>
+</html>
